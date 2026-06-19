@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="background">
+<h1>Ismahanee Alwafi Classroom</h1>
+<nav class="navbar">
+    <div class="nav-brand">
+        <img src="images/school-logo.png" alt="School Logo" class="school-logo">
+        <a href="index.html" class="nav-logo">Al-Azhar Asy-Syarif</a>
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="guru.html">Teacher</a>
+        <a href="index.html#students">Students</a>
+    </div>
+</nav>
+<div class="teacher-container">
+    
+    <div class="teacher">
+        <div class="album">
+            <img src="images/teacher.jpg" alt="Teacher" class="teacher-photo">
+        </div>
+        <div>
+            <h3>Mr. Laksamana Nur Ramadhan</h3>
+            <p>IT Teacher</p>
+            <a href="guru.html" style="color:white;">View Profile →</a>
+        </div>
+    </div>
+
+    <div class="teacher">
+        <div class="album">
+            <img src="images/teacher2.jpg" alt="Teacher" class="teacher-photo">
+        </div>
+        <div>
+            <h3>Mrs. Alfina Khaira Novriza, M.Pd.</h3>
+            <p>Homeroom Teacher</p>
+            <a href="guru2.html" style="color:white;">View Profile →</a>
+        </div>
+    </div>
+
+</div><section id="students" class="students-section">
+
+  <h2>Our Students</h2>
+
+<div class="search-container">
+    <input type="text" id="studentSearch" placeholder="Search for a student name..." onkeyup="filterStudents()">
+  </div>
+
+  <div class="student-album">
+
+    <a href="student1.html" class="student-card">
+      <img src="images/student1.jpg" alt="Student 1">
+      <span>Aisyah</span>
+    </a>
+
+    <a href="student2.html" class="student-card">
+      <img src="images/student2.jpg" alt="Student 2">
+      <span>Anis Alifa Mawaddah</span>
+    </a>
+
+    <a href="student3.html" class="student-card">
+      <img src="images/student3.jpg" alt="Student 3">
+      <span>Athallah Humairah</span>
+    </a>
+
+    <a href="student4.html" class="student-card">
+      <img src="images/student4.jpg" alt="Student 4">
+      <span>Fitrah Ulhana Hasibuan</span>
+    </a>
+
+    <a href="student5.html" class="student-card">
+      <img src="images/student5.jpg" alt="Student 5">
+      <span>Jihan Erika Fadhillah</span>
+    </a>
+
+    <a href="student6.html" class="student-card">
+      <img src="images/student6.jpg" alt="Student 6">
+      <span>Keyza Muslimah</span>
+    </a>
+
+    <a href="student7.html" class="student-card">
+      <img src="images/student7.jpg" alt="Student 7">
+      <span>Mufida Najwa</span>
+    </a>
+
+    <a href="student8.html" class="student-card">
+      <img src="images/student8.jpg" alt="Student 8">
+      <span>Nabila Azzahra</span>
+    </a>
+
+    <a href="student9.html" class="student-card">
+      <img src="images/student9.jpg" alt="Student 9">
+      <span>Neyza Muslimah</span>
+    </a>
+
+    <a href="student10.html" class="student-card">
+      <img src="images/student10.jpg" alt="Student 10">
+      <span>Rizky Ananda Putri</span>
+    </a>
+
+    <a href="student11.html" class="student-card">
+      <img src="images/student11.jpg" alt="Student 11">
+      <span>Ripa Yanti Daulay</span>
+    </a>
+
+    <a href="student12.html" class="student-card">
+      <img src="images/student12.jpg" alt="Student 12">
+      <span>Sausan Nafisa</span>
+    </a>
+
+    <a href="student13.html" class="student-card">
+      <img src="images/student13.jpg" alt="Student 13">
+      <span>Shania Izza Alya</span>
+    </a>
+
+    <a href="student14.html" class="student-card">
+      <img src="images/student14.jpg" alt="Student 14">
+      <span>Suci Nur Khodijah</span>
+    </a>
+
+    <a href="student15.html" class="student-card">
+      <img src="images/student15.jpg" alt="Student 15">
+      <span>Ummi Sakinah Siregar</span>
+    </a>
+
+
+
+<div id="noResults" style="display: none; text-align: center; padding: 40px; color: rgba(255,255,255,0.7);">
+     <p style="font-size: 1.2rem;">No students found matching that name.</p>
+  </div>
+</section>
+<script>
+function filterStudents() {
+  let input = document.getElementById('studentSearch').value.toLowerCase();
+  let grid = document.querySelector('.student-album');
+  let cards = grid.getElementsByClassName('student-card');
+  let noResults = document.getElementById('noResults');
+  
+  let matchCount = 0; // Track if we find any matches
+
+  for (let i = 0; i < cards.length; i++) {
+    let name = cards[i].getElementsByTagName('span')[0].innerText.toLowerCase();
+    
+    if (name.includes(input)) {
+      cards[i].style.display = ""; 
+      matchCount++; // Found a match!
+    } else {
+      cards[i].style.display = "none"; 
+    }
+  }
+
+  // If matchCount is 0, show the message. Otherwise, hide it.
+  if (matchCount === 0) {
+    noResults.style.display = "block";
+    grid.style.display = "none"; // Optional: hide the grid container if empty
+  } else {
+    noResults.style.display = "none";
+    grid.style.display = "grid"; // Bring back the grid layout
+  }
+}
+  </script>
+</body>
+</html>
